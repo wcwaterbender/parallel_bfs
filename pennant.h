@@ -11,11 +11,8 @@ class Pennant{
   public:
     Pennant();
     ~Pennant();
-
     void insert(int key);
-    node *search(int key);
-    void destroy_tree();
-    bool is_balanced();
+    bool is_complete(int cur_level);
     Pennant unify(Pennant x, Pennant y);
     Pennant split(Pennant x);
 
@@ -23,6 +20,7 @@ class Pennant{
     node *root
     //size must always be 2^k
     int size;
+    
 };
 
 #endif
