@@ -2,11 +2,11 @@
 Pennant::Pennant(){
   root=NULL;
   size=0;
-  numlevels=0;
 }
-Pennant::~Pennant()[
+
+Pennant::~Pennant(){
   delete [] root;
-]
+}
 void Pennant::insert(int key){
   node *temp;
   temp->data = key;
@@ -16,7 +16,7 @@ void Pennant::insert(int key){
     this->root = temp;
     this->size++;
   }
-  else if(this->root->left ==NULL){//1st level is far as we need to go
+  else if(this->root->left == NULL){//1st level is far as we need to go
     this->root->left=temp;
     this->size++;
   }
@@ -28,6 +28,15 @@ bool Pennant::is_complete(int cur_level){
     return true;
   }
   return false;
+}
+
+bool Pennant::is_empty(){
+  if(root ==NULL){
+    return true;
+  }
+  else{
+    return false;
+  }
 }
 
 Pennant Pennant::unify(Pennant x, Pennant y){

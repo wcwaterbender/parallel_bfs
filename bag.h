@@ -2,17 +2,18 @@
 #define BAG_H
 
 #include "Pennant.cpp"
+#include <vector>
+using namespace std;
 
 class Bag{
   public:
     Bag();
-    Bag(int size);
     ~Bag();
     void insert(int key);
     Bag unite(Bag s1, Bag s2);
-    Bag divide(Bag s);
+    Bag split(Bag s);
     int getSize();
-
+    vector<Pennant> fullAdd(vector<Pennant> input);
 
   private:
     Pennant** backbone;
